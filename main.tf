@@ -2,7 +2,6 @@ provider "aws" {
   region                  = "us-east-1"
   access_key              = "AKIAZRYHBK4QJMZ5S34S"
   secret_key              = "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"
-  shared_credentials_file = "~/.aws/credentials"
 }
 
 resource "aws_vpc" "main" {
@@ -10,7 +9,7 @@ resource "aws_vpc" "main" {
   enable_dns_support   = "1"
   enable_dns_hostnames = "1"
   tags = {
-    Name = "myfirstvpc"
+    Name = "new_myfirstvpc"
   }
 }
 
@@ -20,7 +19,7 @@ resource "aws_subnet" "first" {
   map_public_ip_on_launch = "1"
   vpc_id                  = aws_vpc.main.id
   tags = {
-    Name = "myfirstsubnet"
+    Name = "new_myfirstsubnet"
   }
 }
 
@@ -30,6 +29,6 @@ resource "aws_instance" "firstec2" {
   key_name      = "my_ssm"
   subnet_id     = aws_subnet.first.id
   tags = {
-    Name = "knode"
+    Name = "new_knode"
   }
 }
